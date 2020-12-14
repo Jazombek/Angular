@@ -17,10 +17,12 @@ getHeroes(): Observable<Hero[]> {
   return of(HEROES);
 }
 
-getHeroId(id: number): Observable<Hero> {
+getHero(id: number): Observable<Hero> {
   // TODO: send the message _after_ fetching the hero
   this.messageService.add(`HeroService: fetched hero id=${id}`);
-  return of(HEROES.find(hero => hero.id === id));
+  // var found = HEROES.find(hero => hero.id == id)!;
+  // return of(found);
+  return of(HEROES.find(hero => hero.id == id)!); // !-> not undefined
 }
 
 }
